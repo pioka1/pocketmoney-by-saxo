@@ -1,0 +1,14 @@
+<resources>
+    <!-- Login page -->
+    <string name="accessibility_saxo_logo">The SAXO Bank logo</string>
+    <string name="app_name">Pocket Money by SAXO</string>
+    <string name="placeholder_cpr">CPR number</string>
+    <string name="placeholder_service_code">Service Code (4 digits)</string>
+    <string name="button_login">Login!</string>
+    <string name="error_missing_cpr">Oops! You forgot your CPR :)</string>
+    <string name="error_missing_service_code">Oops! You forgot your Service Code :)</string>
+    <string name="error_invalid_login">Oops! That\'s not the right CPR number or password :)</string>
+    <string name="help">I need help&#8230;</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
+
+</resources>
