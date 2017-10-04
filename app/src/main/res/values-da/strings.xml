@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Lommepenge fra SAXO</string>
-    <string name="action_sign_in">Log ind eller registrer dig</string>
-    <string name="action_sign_in_short">Log ind</string>
-    <string name="error_field_required">Dette felt er obligatorisk</string>
-    <string name="error_incorrect_password">Fejl kodeord</string>
-    <string name="error_invalid_email">Ugyldig email</string>
-    <string name="error_invalid_password">Dette password er for kort</string>
-    <string name="permission_rationale">\"Vi har brug for tilladelse til at bruge dine Kontakter for at automatisk udfylde din email.\"</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Kodeord (valgfrit)</string>
+    <!-- Login page -->
+    <string name="accessibility_saxo_logo">SAXO Bank logoet</string>
+    <string name="app_name">Lommepenge</string>
+    <string name="app_creator">fra SAXO Bank</string>
+    <string name="placeholder_cpr">CPR nummer</string>
+    <string name="placeholder_service_code">Servicekoden (4 cifre)</string>
+    <string name="button_login">Login!</string>
+    <string name="help">Jeg har brug for hjælp&#8230;</string>
+
+    <string name="error_missing_cpr">Oops! Du glemte dit CPR :)</string>
+    <string name="error_missing_service_code">Oops! Du glemte din Servicekode :)</string>
+    <string name="error_cpr_wrong_length">Oops! Dit CPR er 10 cifre lang :)</string>
+    <string name="error_service_code_wrong_length">Oops! Din Servicekode er 4 cifre lang :)</string>
+    <string name="error_invalid_login">Oops! Forkert CPR eller Servicekode :)</string>
 </resources>

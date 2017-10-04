@@ -33,9 +33,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="80dp"
             android:layout_marginBottom="10dp"
-            android:textSize="@dimen/fontSizeTitle"
+            android:textSize="@dimen/fontSizeH1"
             android:textAlignment="center"
             android:text="@string/app_name"/>
         <TextView
@@ -43,36 +43,43 @@
             android:layout_height="wrap_content"
             android:text="@string/app_creator"
             android:textAlignment="center"
+            android:textSize="@dimen/fontSizeSmall"
             android:layout_marginBottom="20dp"/>
-        <android.support.design.widget.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <AutoCompleteTextView
-                android:id="@+id/cpr"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="30dp">
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/placeholder_cpr"
-                android:inputType="numberDecimal"
-                android:maxLength="10"
-                android:maxLines="1"
-                android:singleLine="true" />
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/service_code"
+                android:layout_height="wrap_content">
+                <AutoCompleteTextView
+                    android:id="@+id/cpr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/placeholder_cpr"
+                    android:inputType="numberDecimal"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/placeholder_service_code"
-                android:imeActionId="@+id/login"
-                android:imeActionLabel="@string/button_login"
-                android:imeOptions="actionUnspecified"
-                android:inputType="textPassword"
-                android:maxLength="4"
-                android:maxLines="1"
-                android:singleLine="true" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/service_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/placeholder_service_code"
+                    android:imeActionId="@+id/login"
+                    android:imeActionLabel="@string/button_login"
+                    android:imeOptions="actionUnspecified"
+                    android:inputType="numberPassword"
+                    android:maxLength="4"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
         <TextView
             android:id="@+id/login_error"
             android:layout_width="match_parent"
@@ -86,11 +93,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:gravity="center"
         android:layout_alignParentBottom="true">
 
         <Button
+            android:id="@+id/login_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/fontSizeH2"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:layout_marginBottom="30dp"
             android:text="@string/button_login"/>
         <TextView
             android:layout_width="match_parent"

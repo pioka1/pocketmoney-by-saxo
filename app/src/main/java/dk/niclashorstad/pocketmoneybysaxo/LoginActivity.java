@@ -3,6 +3,7 @@ package dk.niclashorstad.pocketmoneybysaxo;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -13,6 +14,7 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -29,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText inputServiceCode;
     private TextView textViewError;
     private View viewAjaxLoader;
+    private Button loginButton;
     // Login Task
     private UserLoginTask loginTask = null;
 
@@ -43,8 +46,19 @@ public class LoginActivity extends AppCompatActivity {
         inputServiceCode = (EditText) findViewById(R.id.service_code);
         textViewError = (TextView) findViewById(R.id.login_error);
         viewAjaxLoader = findViewById(R.id.ajax_loader);
+        loginButton = (Button) findViewById(R.id.login_button);
 
-        // If "Enter" is clicked on software keyboard, run login
+        // If "Enter" is clicked on software keyboard
+        inputCpr.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
+                if (id == R.id.login || id == EditorInfo.IME_NULL) {
+                    inputServiceCode.requestFocus();
+                    return true;
+                }
+                return false;
+            }
+        });
         inputServiceCode.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
@@ -57,7 +71,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         // If login Button is clicked, run login
-        Button loginButton = (Button) findViewById(R.id.login);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
         if (loginTask != null) {
             return;
         }
-
+        hideKeyboard();
         // Hide error on new attempt
         textViewError.setVisibility(View.GONE);
 
@@ -148,16 +161,19 @@ public class LoginActivity extends AppCompatActivity {
             loginTask = null;
             showAjaxLoader(false);
 
+            View mainContainerView = findViewById(R.id.main_container);
+
             if (success) {
                 // TODO: redirect to new screen
-                View mainContainerView = findViewById(R.id.main_container);
+
                 Snackbar allahuSnackbar = Snackbar.make(mainContainerView, "Login success", Snackbar.LENGTH_LONG );
                 allahuSnackbar.setActionTextColor(Color.GREEN).show();
-                finish();
             } else {
                 textViewError.setText(getString(R.string.error_invalid_login));
                 textViewError.setVisibility(View.VISIBLE);
                 inputCpr.requestFocus();
+                Snackbar allahuSnackbar = Snackbar.make(mainContainerView, "Login failed", Snackbar.LENGTH_LONG );
+                allahuSnackbar.setActionTextColor(Color.RED).show();
             }
         }
 
@@ -183,6 +199,14 @@ public class LoginActivity extends AppCompatActivity {
                 }
             });
 
+    }
+
+    private void hideKeyboard() {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 
 }
