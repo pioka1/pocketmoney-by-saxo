@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="16dp"
+    tools:context="dk.niclashorstad.pocketmoneybysaxo.MainMenuActivity">
+
+    <TextView
+        android:id="@+id/txt_welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/fontSizeH2"/>
+
+    <Button
+        android:id="@+id/btn_view_balance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/fontSizeH2"
+        android:text="@string/button_view_balance"/>
+    <Button
+        android:id="@+id/btn_buy_currencies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/fontSizeH2"
+        android:text="@string/button_buy_currencies"/>
+    <Button
+        android:id="@+id/btn_sell_currencies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/fontSizeH2"
+        android:text="@string/button_sell_currencies"/>
+    <Button
+        android:id="@+id/btn_view_leaderboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/fontSizeH2"
+        android:text="@string/button_view_leaderboard"/>
+    <Button
+        android:id="@+id/log_out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/fontSizeH2"
+        android:text="@string/button_log_out"/>
+</LinearLayout>

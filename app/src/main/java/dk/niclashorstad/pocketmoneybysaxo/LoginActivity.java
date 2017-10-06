@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -166,8 +167,11 @@ public class LoginActivity extends AppCompatActivity {
             if (success) {
                 // TODO: redirect to new screen
 
-                Snackbar allahuSnackbar = Snackbar.make(mainContainerView, "Login success", Snackbar.LENGTH_LONG );
-                allahuSnackbar.setActionTextColor(Color.GREEN).show();
+                //Snackbar allahuSnackbar = Snackbar.make(mainContainerView, "Login success", Snackbar.LENGTH_LONG );
+                //allahuSnackbar.setActionTextColor(Color.GREEN).show();
+
+                Intent intent = new Intent(LoginActivity.this, MainMenuActivity.class);
+                startActivity(intent);
             } else {
                 textViewError.setText(getString(R.string.error_invalid_login));
                 textViewError.setVisibility(View.VISIBLE);

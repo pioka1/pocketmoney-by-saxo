@@ -13,4 +13,12 @@
     <string name="error_cpr_wrong_length">Oops! Your CPR has to be 10 numbers long :)</string>
     <string name="error_service_code_wrong_length">Oops! Your Service Code has to be 4 numbers long :)</string>
     <string name="error_invalid_login">Oops! That\'s not the right CPR number or Service Code :)</string>
+
+    <!-- Main Menu page -->
+    <string name="textView_welcome">Welcome </string>
+    <string name="button_view_balance">View balance</string>
+    <string name="button_buy_currencies">Buy currencies</string>
+    <string name="button_sell_currencies">Sell currencies</string>
+    <string name="button_view_leaderboard">View leaderboard</string>
+    <string name="button_log_out">Log out</string>
 </resources>
