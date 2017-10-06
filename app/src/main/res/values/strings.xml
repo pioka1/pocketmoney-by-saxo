@@ -21,4 +21,7 @@
     <string name="button_sell_currencies">Sell currencies</string>
     <string name="button_view_leaderboard">View leaderboard</string>
     <string name="button_log_out">Log out</string>
+
+    <!-- Balance -->
+    <string name="textView_myBalance">My Balance</string>
 </resources>

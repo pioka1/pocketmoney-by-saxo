@@ -67,7 +67,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
-                    android:text="2212922555"
                     android:id="@+id/service_code"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -82,7 +81,6 @@
             </android.support.design.widget.TextInputLayout>
         </LinearLayout>
         <TextView
-            android:text="1942"
             android:id="@+id/login_error"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

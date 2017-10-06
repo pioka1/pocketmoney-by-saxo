@@ -21,10 +21,9 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class MainMenuActivity extends AppCompatActivity {
 
-    private static final String TOKEN = "eyJhbGciOiJFUzI1NiIsIng1dCI6IkQ0QUU4MjQ2RDYyNTBFMTY5Njg4NDFCREY4Nzc2MTI4NUMwNUJCMUYifQ.eyJvYWEiOiI3Nzc3MCIsImlzcyI6Im9hIiwiYWlkIjoiMTA5IiwidWlkIjoia29GbGxXbXNMTjVEejRvOVJZb1FuQT09IiwiY2lkIjoia29GbGxXbXNMTjVEejRvOVJZb1FuQT09IiwiaXNhIjoiRmFsc2UiLCJ0aWQiOiIyMDAyIiwic2lkIjoiNjk5NTE5OGNmMDY2NDcwYTg4NTM0OWNlYjVkN2ZhZDIiLCJkZ2kiOiI4NCIsImV4cCI6IjE1MDczNjA5ODcifQ.MaMUmWkNeLmONzD5l1CADdBvXjYocM1FBatWDTrL_MmyhcG-m79QIdGoQTiw-7QbRUYCcCcP2HcVOki7rokrnA";
+    public static final String TOKEN = "eyJhbGciOiJFUzI1NiIsIng1dCI6IkQ0QUU4MjQ2RDYyNTBFMTY5Njg4NDFCREY4Nzc2MTI4NUMwNUJCMUYifQ.eyJvYWEiOiI3Nzc3MCIsImlzcyI6Im9hIiwiYWlkIjoiMTA5IiwidWlkIjoia29GbGxXbXNMTjVEejRvOVJZb1FuQT09IiwiY2lkIjoia29GbGxXbXNMTjVEejRvOVJZb1FuQT09IiwiaXNhIjoiRmFsc2UiLCJ0aWQiOiIyMDAyIiwic2lkIjoiNjk5NTE5OGNmMDY2NDcwYTg4NTM0OWNlYjVkN2ZhZDIiLCJkZ2kiOiI4NCIsImV4cCI6IjE1MDczNjA5ODcifQ.MaMUmWkNeLmONzD5l1CADdBvXjYocM1FBatWDTrL_MmyhcG-m79QIdGoQTiw-7QbRUYCcCcP2HcVOki7rokrnA";
     private static final String URL_USERS = "https://gateway.saxobank.com/sim/openapi/port/v1/users/me";
-    private static final String URL_ACCOUNTS = "https://gateway.saxobank.com/sim/openapi/port/v1/accounts/me";
-    private String userKey;
+    public String userKey;
     private String userName;
 
     private TextView txt_welcome;
@@ -46,7 +45,9 @@ public class MainMenuActivity extends AppCompatActivity {
         btn_view_balance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainMenuActivity.this, MainMenuActivity.class);
+                Intent intent = new Intent(MainMenuActivity.this, ViewBalanceActivity.class);
+                intent.putExtra("TOKEN", TOKEN);
+                intent.putExtra("USER_KEY", userKey);
                 startActivity(intent);
             }
         });
@@ -89,6 +90,8 @@ public class MainMenuActivity extends AppCompatActivity {
                 JSONObject json_obj = new JSONObject(json_stringified);
                 txt_welcome = (TextView) findViewById(R.id.txt_welcome);
                 txt_welcome.setText("Welcome " + json_obj.getString("Name") + "!");
+                Log.d("Client KEY", json_obj.getString("ClientKey"));
+                userKey = json_obj.getString("ClientKey");
             } catch (Exception e) {
                 e.printStackTrace();
             }
